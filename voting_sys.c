@@ -46,9 +46,9 @@ void addCandidate(Candidate candidates[], int *numCandidates) {
 
     char name[MAX_NAME_LENGTH];
     printf("Enter the name of the new candidate: ");
-    clearInputBuffer();  // Clear buffer before fgets to prevent skipped input
+    clearInputBuffer();
     fgets(name, MAX_NAME_LENGTH, stdin);
-    name[strcspn(name, "\n")] = 0;  // Remove newline character
+    name[strcspn(name, "\n")] = 0;
 
     if (isDuplicate(candidates, *numCandidates, name)) {
         printf("Candidate with this name already exists.\n");
@@ -74,7 +74,7 @@ void editCandidate(Candidate candidates[], int numCandidates) {
     clearInputBuffer();
     printf("Enter the new name for candidate %d: ", choice);
     fgets(candidates[choice - 1].name, MAX_NAME_LENGTH, stdin);
-    candidates[choice - 1].name[strcspn(candidates[choice - 1].name, "\n")] = 0; // Remove newline
+    candidates[choice - 1].name[strcspn(candidates[choice - 1].name, "\n")] = 0;
     printf("Candidate name updated successfully to '%s'.\n", candidates[choice - 1].name);
 }
 
